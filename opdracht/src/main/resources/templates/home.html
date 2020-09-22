@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wietze Eilander - 0914588</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+        <form th:action="@{/result}" th:object="${form}" method="post">
+            <label>Inputveld:</label>
+            <input type="text" class="form-control" th:field="*{inputText}">
+            <input type="submit" value="Klik hier">
+        </form>
+
+        </br>
+
+        <label>Het gegeven woord, maar dan omgedraaid:</label>
+        <p th:text="${reverse}"></p>
+    </body>
+</html>

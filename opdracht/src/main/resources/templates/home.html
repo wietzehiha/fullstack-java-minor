@@ -5,15 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
     <body>
-        <form th:action="@{/result}" th:object="${form}" method="post">
-            <label>Inputveld:</label>
+        <form th:action="@{/omdraaien}" th:object="${form}" method="post">
+            <label>woord omdraaien:</label>
+            <input type="text" class="form-control" th:field="*{inputText}">
+            <input type="submit" value="Klik hier">
+        </form>
+
+        <form th:action="@{/tellen}" th:object="${form}" method="post">
+            <label>aantal woroden tellen:</label>
             <input type="text" class="form-control" th:field="*{inputText}">
             <input type="submit" value="Klik hier">
         </form>
 
         </br>
 
-        <label>Het gegeven woord, maar dan omgedraaid:</label>
+        <label>Uitkomst</label>
         <p th:text="${reverse}"></p>
     </body>
 </html>

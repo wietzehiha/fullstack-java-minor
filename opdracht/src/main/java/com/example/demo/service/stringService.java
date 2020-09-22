@@ -1,9 +1,14 @@
-package com.example.demo.controller;
+package com.example.demo.service;
+
+import com.example.demo.model.*;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 /*
     A controller to do stuff with the given input.
  */
-public class stringController {
+@Service
+public class stringService {
 
     /*
         Check what the length is of the given input.
@@ -54,6 +59,22 @@ public class stringController {
         }
 
         return wordCount;
+    }
+
+    @Cacheable("formCache")
+    public formCache getCountByWords(String inputText)
+    {
+        try
+        {
+            System.out.println("Going to sleep for 5 Secs.. to simulate backend call.");
+            Thread.sleep(1000*5);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+        return new formCache(inputText);
     }
 
 }

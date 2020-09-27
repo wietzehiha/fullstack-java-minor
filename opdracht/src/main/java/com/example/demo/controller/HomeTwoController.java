@@ -1,18 +1,18 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.*;
-
+import com.example.demo.model.Form;
 import com.example.demo.service.stringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-@Profile("dev")
+@Profile("prod")
 @Controller
-public class HomeController {
-
+public class HomeTwoController {
     @Autowired
     stringService StringService;
 
@@ -26,30 +26,14 @@ public class HomeController {
     }
 
     @PostMapping("/omdraaien")
-    public String omdraaienForm(@ModelAttribute Form form, Model model) {
+    public String capsTheString(@ModelAttribute Form form, Model model) {
 
         System.out.println("Input:" + form.getInputText());
 
-        reverse = "Woord omgedraaid: " + StringService.reverse(form.getInputText());
+        reverse = "Woord in CAPS: " + StringService.wordsBigger(form.getInputText());
 
         model.addAttribute("reverse", reverse);
 
         return "home";
     }
-
-    @PostMapping("/tellen")
-    public String countWordsForm(@ModelAttribute Form form, Model model) {
-
-        String input = form.getInputText();
-
-        System.out.println("Input:" + input);
-
-        reverse = "Aantal woorden: " +  StringService.getCountByWords(input).countWords;
-
-        model.addAttribute("reverse", reverse);
-
-        return "home";
-    }
-
 }
-

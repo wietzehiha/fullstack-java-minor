@@ -33,6 +33,15 @@ public class stringService {
         return output;
     }
 
+    public static String wordsBigger(String input) {
+        if (input == null) {
+            return input;
+        }
+        String output = input.toUpperCase();
+
+        return output;
+    }
+
     public static int countWords(String input) {
         int wordCount = 0;
 

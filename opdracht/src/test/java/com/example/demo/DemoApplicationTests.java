@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -37,7 +36,7 @@ class DemoApplicationTests {
 	@DisplayName("Test Spring @Autowired Integration")
 	@Test
 	void testGet() {
-		assertEquals("Hello dit is een test", StringService.get());
+		assertEquals("dit is een test", StringService.get());
 	}
 
 }

@@ -60,6 +60,12 @@
 			<version>1.1.10</version>
 			<type>pom</type>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -91,17 +97,15 @@
 			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.1.10</version>
+				<version>1.5.2</version>
 				<configuration>
 					<targetClasses>
 						<param>com.example.demo.*</param>
 					</targetClasses>
 					<targetTests>
-						<param>com.example.demo.service.*</param>
+						<param>com.example.demo.*</param>
 					</targetTests>
 				</configuration>
-
-
 			</plugin>
 		</plugins>
 	</build>

@@ -17,10 +17,7 @@ public class DemoApplicationMockTests {
 
     stringService test = Mockito.mock(stringService.class);
 
-    @InjectMocks
-    private stringService StringService;
-
-    @DisplayName("Test Mock helloService + helloRepository")
+    @DisplayName("Test Mock StringService")
     @Test
     void testGet() {
         when(test.get()).thenReturn("dit is een test");

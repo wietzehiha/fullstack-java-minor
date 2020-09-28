@@ -86,4 +86,9 @@ public class stringService {
         return new formCache(inputText);
     }
 
+    public String get() {
+        return "dit is een test";
+    }
+
+
 }

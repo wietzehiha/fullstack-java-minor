@@ -18,20 +18,22 @@ public class HomeTwoController {
 
     String reverse;
 
+    /*
+     * Create a new Form model. With the mapping of "/begin"
+     */
     @GetMapping("/begin")
     public String createForm(Model model) {
-
         model.addAttribute("form", new Form());
         return "home";
     }
 
+    /*
+     * url: "/omdraaien"
+     * Make the string uppercase..
+     */
     @PostMapping("/omdraaien")
     public String capsTheString(@ModelAttribute Form form, Model model) {
-
-        System.out.println("Input:" + form.getInputText());
-
         reverse = "Woord in CAPS: " + StringService.wordsBigger(form.getInputText());
-
         model.addAttribute("reverse", reverse);
 
         return "home";

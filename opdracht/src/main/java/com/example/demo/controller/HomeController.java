@@ -18,34 +18,36 @@ public class HomeController {
 
     String reverse;
 
+
+    /*
+     * Create a new Form model. With the mapping of "/begin"
+     */
     @GetMapping("/begin")
     public String createForm(Model model) {
-
         model.addAttribute("form", new Form());
         return "home";
     }
 
+    /*
+     * url: "/omdraaien"
+     * The given String been transferd to the string reversed.
+     */
     @PostMapping("/omdraaien")
     public String omdraaienForm(@ModelAttribute Form form, Model model) {
-
-        System.out.println("Input:" + form.getInputText());
-
         reverse = "Woord omgedraaid: " + StringService.reverse(form.getInputText());
-
         model.addAttribute("reverse", reverse);
 
         return "home";
     }
 
+    /*
+     * url: "/tellen"
+     * Count the words in the string.
+     */
     @PostMapping("/tellen")
     public String countWordsForm(@ModelAttribute Form form, Model model) {
-
         String input = form.getInputText();
-
-        System.out.println("Input:" + input);
-
         reverse = "Aantal woorden: " +  StringService.getCountByWords(input).countWords;
-
         model.addAttribute("reverse", reverse);
 
         return "home";
